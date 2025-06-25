@@ -126,8 +126,7 @@ export default function Resume() {
 
   const handleDownloadResume = () => {
     window.open(
-      'https://docs.google.com/document/d/16fVcZ9-FRQkPdNRK_I5Qs4CrpgtV7abOTbd8S0kmXPw/export?format=pdf',
-      '_blank'
+      'https://docs.google.com/document/d/16fVcZ9-FRQkPdNRK_I5Qs4CrpgtV7abOTbd8S0kmXPw/export?format=pdf'
     );
   };
 
