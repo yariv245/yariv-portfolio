@@ -127,7 +127,7 @@ export default function Resume() {
     {
       period: '2019–2020',
       company: 'DBmaestro',
-      role: 'Test Automation Engineer',
+      role: 'Automation Developer',
       achievements: [
         'Developed automated tests with Python, Selenium, and Pytest',
         'Integrated tests into CI/CD pipelines using Jenkins',
