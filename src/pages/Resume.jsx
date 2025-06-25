@@ -18,6 +18,9 @@ import {
   GraduationCap,
   Shield,
   HardDrive,
+  Settings,
+  Brain,
+  Wrench,
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
@@ -46,44 +49,53 @@ const itemVariants = {
 };
 
 export default function Resume() {
-  const [activeSection, setActiveSection] = useState('hero');
   const [isLoading, setIsLoading] = useState(false);
 
   const skills = {
-    Programming: {
-      items: ['Java', 'Python', 'SQL', 'NoSQL'],
-      icon: Code,
+    'AI & NLP': {
+      items: ['ChatGPT API', 'RAG', 'QdrantDB', 'HuggingFace', 'PDF parsing'],
+      icon: Brain,
       color: 'bg-green-50 text-green-700 border-green-200',
     },
-    Frameworks: {
-      items: ['Spring Boot', 'FastAPI', 'GraphQL'],
+    'Backend & Frameworks': {
+      items: [
+        'Java',
+        'Spring Boot',
+        'FastAPI',
+        'GraphQL',
+        'RESTful APIs',
+        'Apache PdfBox',
+        'Criteria API',
+        'Maven',
+      ],
       icon: Server,
       color: 'bg-emerald-50 text-emerald-700 border-emerald-200',
     },
-    Database: {
-      items: ['MongoDB', 'MSSQL', 'PostgreSQL', 'QdrantDB', 'Neo4j'],
-      icon: HardDrive,
+    'DevOps & Tools': {
+      items: ['Docker', 'Jenkins', 'GitHub Actions', 'Proxmox', 'Git', 'VM'],
+      icon: Wrench,
       color: 'bg-teal-50 text-teal-700 border-teal-200',
     },
-    Tools: {
-      items: ['Docker', 'Jenkins', 'Git', 'Selenium', 'Pytest'],
+    Databases: {
+      items: ['PostgreSQL', 'MSSQL', 'MongoDB', 'Neo4j', 'NoSQL', 'VectorDB'],
       icon: Database,
       color: 'bg-teal-50 text-teal-700 border-teal-200',
     },
     Cloud: {
-      items: ['AWS EC2', 'S3', 'SQS'],
+      items: ['AWS EC2', 'AWS S3', 'AWS SQS'],
       icon: Cloud,
       color: 'bg-emerald-50 text-emerald-700 border-emerald-200',
     },
-    Concepts: {
+    Architecture: {
       items: [
         'Microservices',
-        'RAG',
-        'VectorDB',
-        'OOP',
+        'Design Patterns',
         'SOLID',
-        'DI',
+        'OOP',
         'Caching',
+        'Dependency Injection',
+        'Stream API',
+        'Agile',
       ],
       icon: Award,
       color: 'bg-green-50 text-green-700 border-green-200',
