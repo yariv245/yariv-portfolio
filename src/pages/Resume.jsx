@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import {
   Mail,
@@ -17,8 +17,6 @@ import {
   Briefcase,
   GraduationCap,
   Shield,
-  HardDrive,
-  Settings,
   Brain,
   Wrench,
 } from 'lucide-react';
