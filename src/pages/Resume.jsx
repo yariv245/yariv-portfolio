@@ -125,10 +125,10 @@ export default function Resume() {
   ];
 
   const handleDownloadResume = () => {
-    const link = document.createElement('a');
-    link.href = `${import.meta.env.BASE_URL}resume.pdf`; // 👈 File should be inside "public/resume.pdf"
-    link.download = 'Yariv-Menachem-Resume.pdf';
-    link.click();
+    window.open(
+      'https://docs.google.com/document/d/16fVcZ9-FRQkPdNRK_I5Qs4CrpgtV7abOTbd8S0kmXPw/export?format=pdf',
+      '_blank'
+    );
   };
 
   return (
