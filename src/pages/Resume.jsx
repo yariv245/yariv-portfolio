@@ -474,7 +474,13 @@ export default function Resume() {
                     <h3 className='text-3xl font-bold text-white'>
                       JobSeekerTG Bot
                     </h3>
-                    <ExternalLink className='w-5 h-5 text-slate-400 hover:text-green-400 cursor-pointer transition-colors' />
+                    <a
+                      href='https://github.com/yariv245/JobSeekerTG'
+                      target='_blank'
+                      rel='noopener noreferrer'
+                    >
+                      <ExternalLink className='w-5 h-5 text-slate-400 hover:text-green-400 cursor-pointer transition-colors' />
+                    </a>
                   </div>
 
                   <p className='text-lg text-slate-300 mb-6 leading-relaxed'>
