@@ -47,6 +47,7 @@ const itemVariants = {
 
 export default function Resume() {
   const [activeSection, setActiveSection] = useState('hero');
+  const [isLoading, setIsLoading] = useState(false);
 
   const skills = {
     Programming: {
@@ -123,11 +124,33 @@ export default function Resume() {
       ],
     },
   ];
+  const handleDownloadResume = async () => {
+    const docUrl =
+      'https://docs.google.com/document/d/16fVcZ9-FRQkPdNRK_I5Qs4CrpgtV7abOTbd8S0kmXPw/export?format=pdf';
+    setIsLoading(true); // 🔄 Start loader
 
-  const handleDownloadResume = () => {
-    window.open(
-      'https://docs.google.com/document/d/16fVcZ9-FRQkPdNRK_I5Qs4CrpgtV7abOTbd8S0kmXPw/export?format=pdf'
-    );
+    try {
+      const response = await fetch(docUrl);
+
+      if (!response.ok) throw new Error('Fetch failed');
+
+      const blob = await response.blob();
+      const url = window.URL.createObjectURL(blob);
+
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = 'Yariv-Menachem-Resume.pdf';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+
+      window.URL.revokeObjectURL(url);
+    } catch (error) {
+      console.error('Download failed, opening in new tab...', error);
+      window.open(docUrl, '_blank');
+    } finally {
+      setIsLoading(false); // ✅ Stop loader
+    }
   };
 
   return (
@@ -230,11 +253,42 @@ export default function Resume() {
             <motion.div variants={itemVariants}>
               <Button
                 onClick={handleDownloadResume}
+                disabled={isLoading}
                 size='lg'
-                className='bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white px-8 py-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105'
+                className={`bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white px-8 py-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 ${
+                  isLoading ? 'opacity-70 cursor-wait' : ''
+                }`}
               >
-                <Download className='w-5 h-5 mr-2' />
-                Download Resume
+                {isLoading ? (
+                  <span className='flex items-center'>
+                    <svg
+                      className='animate-spin h-5 w-5 mr-2 text-white'
+                      xmlns='http://www.w3.org/2000/svg'
+                      fill='none'
+                      viewBox='0 0 24 24'
+                    >
+                      <circle
+                        className='opacity-25'
+                        cx='12'
+                        cy='12'
+                        r='10'
+                        stroke='currentColor'
+                        strokeWidth='4'
+                      />
+                      <path
+                        className='opacity-75'
+                        fill='currentColor'
+                        d='M4 12a8 8 0 018-8v8z'
+                      />
+                    </svg>
+                    Downloading...
+                  </span>
+                ) : (
+                  <>
+                    <Download className='w-5 h-5 mr-2' />
+                    Download Resume
+                  </>
+                )}
               </Button>
             </motion.div>
           </div>
