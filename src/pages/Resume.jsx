@@ -80,7 +80,7 @@ export default function Resume() {
       color: 'bg-teal-50 text-teal-700 border-teal-200',
     },
     Cloud: {
-      items: ['AWS EC2', 'AWS S3', 'AWS SQS'],
+      items: ['AWS EC2', 'AWS S3', 'AWS SQS', 'Kafka', 'Redis'],
       icon: Cloud,
       color: 'bg-emerald-50 text-emerald-700 border-emerald-200',
     },
@@ -121,7 +121,6 @@ export default function Resume() {
         'Created REST APIs and integrated third-party systems',
         'Built a secure SFTP data pipeline for financial transactions (bank-ready CSVs)',
         'Developed dynamic PDF generation service using AWS S3 & PdfBox',
-        'Improved system performance and backend scalability',
       ],
     },
     {
