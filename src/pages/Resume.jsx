@@ -324,7 +324,7 @@ export default function Resume() {
                   <p className='text-xl leading-relaxed text-slate-200'>
                     Experienced backend developer with{' '}
                     <span className='font-semibold text-green-400'>
-                      3+ years
+                      4+ years
                     </span>{' '}
                     of hands-on experience building scalable systems with Java,
                     Spring Boot, Python, and modern cloud-native technologies.
