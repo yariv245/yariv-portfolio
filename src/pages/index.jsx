@@ -45,7 +45,6 @@ export default function Pages() {
   return (
     <Router basename='/yariv-portfolio'>
       {' '}
-      {/* 👈 GitHub Pages fix */}
       <PagesContent />
     </Router>
   );
