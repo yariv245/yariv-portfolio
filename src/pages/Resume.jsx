@@ -59,9 +59,10 @@ export default function Resume() {
       items: [
         'Java',
         'Spring Boot',
+        'NodeJS',
+        'TypeScript',
+        'Python',
         'FastAPI',
-        'RESTful APIs',
-        'Apache PdfBox',
         'Maven',
       ],
       icon: Server,
@@ -131,9 +132,27 @@ export default function Resume() {
       ],
     },
   ];
+
+  const projects = [
+    {
+      name: 'JobSeekerTG Bot',
+      description:
+        'Deployed Telegram bot that scrapes job postings from platforms like LinkedIn, Indeed, Glassdoor and others. Using Python, MongoDB.',
+      technologies: ['Python', 'Telegram API', 'MongoDB', 'Web Scraping'],
+      link: 'https://github.com/yariv245/JobSeekerTG-Bot',
+    },
+    {
+      name: 'YY-shifts',
+      description:
+        'Developed a scheduling system for businesses to manage employee shifts based on availability and priorities. The system automates shift assignments and supports flexible work cycles for teams like bars, call centers, and restaurants.',
+      technologies: ['NodeJS', 'TypeScript', 'Express', 'Postgres'],
+      link: 'https://github.com/yarinTag/YY-shifts',
+    },
+  ];
+
   const handleDownloadResume = async () => {
     const docUrl =
-      'https://docs.google.com/document/d/16fVcZ9-FRQkPdNRK_I5Qs4CrpgtV7abOTbd8S0kmXPw/export?format=pdf';
+      'https://docs.google.com/document/d/1Ind0tbRVCYiomcZBBIcOqktxNxkx-6J5QY2BXfcXwwk/export?format=pdf';
     setIsLoading(true); // 🔄 Start loader
 
     try {
@@ -327,8 +346,7 @@ export default function Resume() {
                     of hands-on experience building scalable systems with Java,
                     Spring Boot, Python, and modern cloud-native technologies.
                     Specializing in REST APIs, microservices, databases (SQL &
-                    NoSQL), and AI-integrated features using FastAPI, Neo4j,
-                    GraphQL, and ChatGPT/Qdrant for intelligent automation.
+                    NoSQL), and AI features ChatGPT,Qdrant,OCR.
                   </p>
                 </CardContent>
               </Card>
@@ -469,48 +487,48 @@ export default function Resume() {
           <div className='max-w-4xl mx-auto'>
             <motion.div variants={itemVariants} className='text-center mb-16'>
               <h2 className='text-4xl md:text-5xl font-bold text-white mb-6'>
-                Featured Project
+                Projects
               </h2>
             </motion.div>
 
-            <motion.div variants={itemVariants}>
-              <Card className='bg-white/10 backdrop-blur-sm shadow-2xl hover:shadow-3xl transition-all duration-300 border border-green-500/20'>
-                <CardContent className='p-10'>
-                  <div className='flex items-center gap-3 mb-6'>
-                    <Code className='w-8 h-8 text-green-400' />
-                    <h3 className='text-3xl font-bold text-white'>
-                      JobSeekerTG Bot
-                    </h3>
-                    <a
-                      href='https://github.com/yariv245/JobSeekerTG'
-                      target='_blank'
-                      rel='noopener noreferrer'
-                    >
-                      <ExternalLink className='w-5 h-5 text-slate-400 hover:text-green-400 cursor-pointer transition-colors' />
-                    </a>
-                  </div>
-
-                  <p className='text-lg text-slate-300 mb-6 leading-relaxed'>
-                    Deployed Telegram bot that scrapes job postings from
-                    platforms like LinkedIn, Indeed, Glassdoor and others. Using
-                    Python, MongoDB.
-                  </p>
-
-                  <div className='flex flex-wrap gap-2'>
-                    {['Python', 'Telegram API', 'MongoDB', 'Web Scraping'].map(
-                      (tech) => (
-                        <Badge
-                          key={tech}
-                          className='bg-green-500/20 text-green-400 hover:bg-green-500/30 transition-colors'
+            <div className='space-y-12'>
+              {projects.map((project, index) => (
+                <motion.div key={index} variants={itemVariants}>
+                  <Card className='bg-white/10 backdrop-blur-sm shadow-2xl hover:shadow-3xl transition-all duration-300 border border-green-500/20'>
+                    <CardContent className='p-10'>
+                      <div className='flex items-center gap-3 mb-6'>
+                        <Code className='w-8 h-8 text-green-400' />
+                        <h3 className='text-3xl font-bold text-white'>
+                          {project.name}
+                        </h3>
+                        <a
+                          href={project.link}
+                          target='_blank'
+                          rel='noopener noreferrer'
                         >
-                          {tech}
-                        </Badge>
-                      )
-                    )}
-                  </div>
-                </CardContent>
-              </Card>
-            </motion.div>
+                          <ExternalLink className='w-5 h-5 text-slate-400 hover:text-green-400 cursor-pointer transition-colors' />
+                        </a>
+                      </div>
+
+                      <p className='text-lg text-slate-300 mb-6 leading-relaxed'>
+                        {project.description}
+                      </p>
+
+                      <div className='flex flex-wrap gap-2'>
+                        {project.technologies.map((tech) => (
+                          <Badge
+                            key={tech}
+                            className='bg-green-500/20 text-green-400 hover:bg-green-500/30 transition-colors'
+                          >
+                            {tech}
+                          </Badge>
+                        ))}
+                      </div>
+                    </CardContent>
+                  </Card>
+                </motion.div>
+              ))}
+            </div>
           </div>
         </motion.section>
 
