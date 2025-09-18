@@ -103,7 +103,7 @@ export default function Resume() {
     {
       period: '2025–Present',
       company: 'Freelance',
-      role: 'Backend Developer',
+      role: 'Software Developer',
       achievements: [
         'Built a hybrid BOM system using FastAPI, PostgreSQL & Neo4j',
         'Integrated GraphQL API and OCR to automate shipping certificate workflows',
@@ -339,11 +339,7 @@ export default function Resume() {
               <Card className='bg-white/10 backdrop-blur-sm shadow-2xl border border-green-500/20'>
                 <CardContent className='p-12'>
                   <p className='text-xl leading-relaxed text-slate-200'>
-                    Experienced backend developer with{' '}
-                    <span className='font-semibold text-green-400'>
-                      3+ years
-                    </span>{' '}
-                    of hands-on experience building scalable systems with Java,
+                    Experienced backend developer of hands-on experience building scalable systems with Java,
                     Spring Boot, Python, and modern cloud-native technologies.
                     Specializing in REST APIs, microservices, databases (SQL &
                     NoSQL), and AI features ChatGPT,Qdrant,OCR.
