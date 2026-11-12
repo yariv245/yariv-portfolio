@@ -216,6 +216,8 @@ export const projects = [
       'Web app with Telegram login, a job list, an application tracker board and live search progress.',
     ],
     technologies: ['Python', 'python-telegram-bot', 'FastAPI', 'HTMX', 'MongoDB', 'Gemini', 'Railway'],
+    link: 'https://t.me/ymjobsbot',
+    linkLabel: 'Open bot',
   },
   {
     name: 'Stock AI Analysis',
