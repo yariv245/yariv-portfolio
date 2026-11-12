@@ -1,20 +1,18 @@
-# Base44 App
+# Yariv Menachem · Portfolio
 
+Personal portfolio site: Vite + React + Tailwind, deployed to GitHub Pages at
+https://yariv245.github.io/yariv-portfolio/
 
-This app was created automatically by Base44.
-It's a Vite+React app that communicates with the Base44 API.
+## Updating the content
 
-## Running the app
+All text (profile, experience, projects, skills, education) lives in
+`src/data/profile.js`. The downloadable resume is `public/resume.pdf`.
+
+## Running
 
 ```bash
 npm install
-npm run dev
+npm run dev      # local dev server
+npm run build    # production build into dist/
+npm run deploy   # build and publish dist/ to the gh-pages branch
 ```
-
-## Building the app
-
-```bash
-npm run build
-```
-
-For more information and support, please contact Base44 support at app@base44.com.
