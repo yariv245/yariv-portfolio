@@ -156,3 +156,10 @@ button:focus-visible {
     @apply bg-background text-foreground;
   }
 }
+
+/* In-page navigation */
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+section[id] { scroll-margin-top: 4.5rem; }
+.no-scrollbar { scrollbar-width: none; }
+.no-scrollbar::-webkit-scrollbar { display: none; }

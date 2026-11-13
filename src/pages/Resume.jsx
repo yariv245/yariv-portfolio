@@ -20,7 +20,9 @@ import {
   Brain,
   ChevronDown,
   ArrowRight,
+  FolderGit2,
 } from 'lucide-react';
+import SiteNav from '@/components/site/SiteNav';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import {
@@ -169,7 +171,8 @@ export default function Resume() {
   const resumeUrl = `${import.meta.env.BASE_URL}${profile.resumePdf}`;
 
   return (
-    <div className='min-h-screen bg-slate-900 relative overflow-hidden'>
+    <div id='top' className='min-h-screen bg-slate-900 relative overflow-hidden'>
+      <SiteNav name={profile.name} />
       {/* Tech Background Pattern */}
       <div className='absolute inset-0 opacity-10' aria-hidden='true'>
         <div
@@ -248,7 +251,7 @@ export default function Resume() {
               </a>
             </motion.div>
 
-            <motion.div variants={itemVariants}>
+            <motion.div variants={itemVariants} className='flex flex-wrap justify-center gap-3 md:gap-4'>
               <a
                 href={resumeUrl}
                 download='Yariv-Menachem-Resume.pdf'
@@ -257,12 +260,27 @@ export default function Resume() {
                 <Download className='w-5 h-5 mr-2' aria-hidden='true' />
                 Download Resume
               </a>
+              <a
+                href='#projects'
+                className='inline-flex items-center text-white text-base font-medium px-8 py-4 rounded-full border border-green-500/50 bg-white/5 hover:bg-white/15 transition-all duration-300 hover:scale-105 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-400'
+              >
+                <FolderGit2 className='w-5 h-5 mr-2 text-green-400' aria-hidden='true' />
+                See my projects
+              </a>
             </motion.div>
           </div>
+          <a
+            href='#about'
+            aria-label='Scroll to About'
+            className='absolute bottom-3 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 text-slate-400 hover:text-green-400 transition-colors'
+          >
+            <span className='text-xs uppercase tracking-widest'>Scroll</span>
+            <ChevronDown className='w-6 h-6 animate-bounce' aria-hidden='true' />
+          </a>
         </motion.section>
 
         {/* About */}
-        <Section title='About Me'>
+        <Section id='about' title='About Me'>
           <motion.div variants={itemVariants} className='max-w-4xl mx-auto'>
             <Card className={`${cardClass} shadow-2xl`}>
               <CardContent className='p-6 md:p-12 space-y-5'>
@@ -277,7 +295,7 @@ export default function Resume() {
         </Section>
 
         {/* Experience */}
-        <Section title='Experience' tinted>
+        <Section id='experience' title='Experience' tinted>
           <div className='relative max-w-4xl mx-auto'>
             <div className='absolute left-3 md:left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-green-500 to-emerald-600'></div>
             {experience.map((job) => (
@@ -313,7 +331,7 @@ export default function Resume() {
         </Section>
 
         {/* Projects */}
-        <Section title='Projects'>
+        <Section id='projects' title='Projects'>
           <div className='grid md:grid-cols-2 gap-6 md:gap-8'>
             {projects.map((project) => (
               <motion.div key={project.name} variants={itemVariants}>
@@ -367,7 +385,7 @@ export default function Resume() {
         </Section>
 
         {/* Skills */}
-        <Section title='Skills' tinted>
+        <Section id='skills' title='Skills' tinted>
           <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-6'>
             {skills.map(({ group, icon, items }) => {
               const Icon = skillIcons[icon] || Code;
@@ -400,7 +418,7 @@ export default function Resume() {
         </Section>
 
         {/* Education & Military */}
-        <Section title='Education & Service'>
+        <Section id='education' title='Education & Service'>
           <div className='grid md:grid-cols-2 gap-6 md:gap-12 max-w-4xl mx-auto'>
             {[
               { Icon: GraduationCap, heading: 'Education', title: education.degree, sub: education.school, period: education.period },
