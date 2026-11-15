@@ -76,6 +76,10 @@ export const experience = [
         ],
       },
       {
+        title: 'Book Now, Pay Later',
+        text: 'Built Book Now, Pay Later for travel bookings: deferred charges scheduled ahead of the trip, card verification through a J5 authorization hold, pay-later vouchers and a cancellation lock as the travel date approaches.',
+      },
+      {
         title: 'Multi-agent development workflow',
         text: 'Built a multi-agent AI development workflow (plan → implement → review → PR) with approval gates, Beads task tracking and persistent context; now my primary way of shipping code.',
         details: [
